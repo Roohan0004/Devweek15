@@ -1,0 +1,20 @@
+name: wf-ci-staging
+on:
+  pull_request:
+    branches:
+      - "release/**"
+jobs:
+  ci-staging-job;
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout Repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{github.ref}}
+      - name: Linting HTML And CSS files
+        run: |
+          npx htmlhint "**/*.html"
+          npx stylelint "**/*.css"
+      - name: Build 
+        run: |
+          npx parcel build "./src/index.html" --dist-dir "./dist"
