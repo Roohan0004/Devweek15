@@ -19,7 +19,7 @@ jobs:
           name: "development-artifact"
   cd-deploy-development-job:
     needs: cd-build-development-job
-    envarnment: "development-env"
+    environment: "development-env"
     permissions:
       pages: write
       id-token: write
