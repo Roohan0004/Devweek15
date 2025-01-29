@@ -1,7 +1,8 @@
 name: wf-ci-development
 on:
   pull_request:
-    - develop
+    branches:
+      - develop
 jobs:
   ci-development-job:
     runs-on: ubuntu-latest
